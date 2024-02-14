@@ -6,12 +6,13 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { configureStore } from 'redux';
+// import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
 import Nav from './components/Nav';
-import rootReducer from './reducers';
+// import reducer from './utils/reducers';
 import store from './utils/store'
+import StoreProvider from './utils/store.jsx'; // Adjust the path as needed
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -32,15 +33,13 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const store = configureStore(rootReducer); // Create a Redux store with your root reducer
-
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Provider store={store}> {/* Make the Redux store available to your app */}
+      <StoreProvider> {/* Make the Redux store available to your app */}
         <Nav />
         <Outlet />
-      </Provider>
+      </StoreProvider>
     </ApolloProvider>
   );
 }
