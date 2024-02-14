@@ -2,7 +2,7 @@
   "name": "mern-shopping",
   "version": "1.0.0",
   "engines": {
-    "node": "v18.18.1"
+    "node": "18.18.1"
   },
   "description": "",
   "main": "server/server.js",
