@@ -10,7 +10,8 @@ import { configureStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import Nav from './components/Nav';
-import rootReducer from './reducers'; // You need to create this file
+import rootReducer from './reducers';
+import store from './utils/store'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
